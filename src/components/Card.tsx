@@ -7,12 +7,12 @@ export default function Card() {
         <div className="w-full h-80 bg-gradient-to-br from-orange-400 to-red-500 rounded-t-3xl overflow-hidden relative shadow-inner">
           <img
             className="w-full h-full object-cover opacity-80 transition duration-300 hover:opacity-100"
-            src="/img10.jpg"
+            src="/img9.jpg"
             alt=""
           />
            <div className="absolute inset-0 flex justify-center items-center">
             <img
-              className="h-3/4" 
+              className="h-2/4" 
               src="/gordito-r.png" 
               alt=""
             />
