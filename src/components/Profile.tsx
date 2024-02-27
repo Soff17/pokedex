@@ -26,7 +26,7 @@ const handleFillClick = (value: string) => {
                 onClick={() => handleFillClick("tab1")}
                 active={fillActive === "tab1"}
                 >
-                Pefil
+                Perfil
                 </TETabsItem>
                 <TETabsItem
                 onClick={() => handleFillClick("tab2")}
