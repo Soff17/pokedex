@@ -1,17 +1,13 @@
 import React from 'react';
 import Button from './Button';
 
-interface CardProps{
-
-  image?:string;
-  title?:string;
-  description?:string;
-  
+interface CardProps {
+  image?: string;
+  title?: string;
+  description?: string;
 }
 
-
-
-export default function Card(props:CardProps) {
+export default function Card(props: CardProps) {
   return (
     <div className="flex flex-col justify-center items-center min-h-screen bg-gradient-to-br from-yellow-400 to-red-500">
       <div className="bg-white p-7 rounded-3xl shadow-2xl w-1/3 m-5 transition duration-500 hover:scale-105">
@@ -29,19 +25,23 @@ export default function Card(props:CardProps) {
             />
           </div>
         </div>
-
         
         <div className="text-center mt-5">
-        <div
-  className="text-2xl font-bold"
-  style={{
-    color: '#F3F604', // Color del texto amarillo
-    WebkitTextStroke: '1.5px #0681FF' // Grosor y color del borde azul, específico de WebKit
-  }}
->
-{props.title}
-</div>
-<p className="text-gray-700 mt-2">{props.description}</p>
+          <div
+            className="text-2xl font-bold mb-4"
+            style={{
+              color: '#F3F604', // Color del texto amarillo
+              WebkitTextStroke: '1.5px #0681FF' // Grosor y color del borde azul, específico de WebKit
+            }}
+          >
+            {props.title}
+          </div>
+          <p className="text-gray-700 mt-2 mb-4">{props.description}</p>
+          <input
+            type="text"
+            className="text-center p-2 rounded-lg border-2 border-gray-300 mb-4 w-full"
+            placeholder="Escribe algo..."
+          />
           <Button></Button>
         </div>
       </div>
