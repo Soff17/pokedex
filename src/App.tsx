@@ -10,7 +10,6 @@ import {Moves} from './models/Moves';
 import {Stats} from './models/Stats';
 import {PokeApi} from './api/PokeApi';
 import PokemonComponent from './components/Pokemon';
-import MovimientosCard from './components/Movimientos';
 
 function App() {
   const [pokemonNumber, setPokemonNumber] = React.useState<string|undefined>(undefined);
@@ -39,17 +38,13 @@ function App() {
     
     <div className="App">
       <Card></Card>
-      <Profile></Profile>
       <input onChange={(event)=>{setPokemonNumber(event.target.value)}} className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value={pokemonNumber}></input>
       <Button label="Buscar" color='green' onClick={()=>buscar()}></Button>
       {loading && <p>Cargando...</p>}
       {(!loading && pokemon && moves && stats &&!error) && <>
         <IntroPokedex stats={stats}></IntroPokedex>
+        <Profile stats={stats} moves={moves}></Profile>
         <PokemonComponent pokemon={pokemon}></PokemonComponent>
-        <div className="grid grid-cols-12 gap-4">
-          <MovimientosCard moves={moves}></MovimientosCard>
-        </div>
-        
       </>}
       {error && <p>{error}</p>}
     </div>
