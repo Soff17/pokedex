@@ -83,11 +83,6 @@ const handleFillClick = (value: string) => {
                 </TETabsPane>
                 <TETabsPane show={fillActive === "tab3"}>
                     <div className="grid grid-cols-12 gap-4">
-                        <Movimientos label="Tackle" image="https://www.svgrepo.com/show/455822/fish-hook.svg"></Movimientos>
-                        <Movimientos label="Water Gun" image="https://www.svgrepo.com/show/511203/water-drop.svg"></Movimientos>
-                        <Movimientos label="Bubble" image="https://www.svgrepo.com/show/477635/bubble-3.svg"></Movimientos>
-                        <Movimientos label="Withdraw" image="https://www.svgrepo.com/show/489020/line-chart.svg"></Movimientos>
-                        <Movimientos label="Tail Whip" image="https://www.svgrepo.com/show/456160/muscle-gain.svg"></Movimientos>
                     </div>
                 </TETabsPane>
             </TETabsContent>
