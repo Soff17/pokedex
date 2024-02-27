@@ -1,10 +1,11 @@
-import React from 'react';
+// En App.tsx
+
+import React, { useState } from 'react';
 import './App.css';
-import Button from './components/Button';
-import Card from './components/Card';
 import IntroPokedex from './components/IntroPokedex';
 import Profile from './components/Profile';
 import './index.css';
+
 import {Pokemon} from './models/Pokemon';
 import {Moves} from './models/Moves';
 import {Stats} from './models/Stats';
@@ -19,27 +20,42 @@ function App() {
   const [loading,setLoading]=React.useState<boolean>(false);
   const [error,setError]=React.useState<string|undefined>(undefined);
   function buscar(){
+import Card from './components/Card';
+
+function App() {
+  const [pokemonNumber, setPokemonNumber] = useState<string | undefined>(undefined);
+  const [pokemon, setPokemon] = useState<Pokemon | undefined>(undefined);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | undefined>(undefined);
+
+  function buscar() {
     setLoading(true);
     setError(undefined);
-    PokeApi.getPokemonById(pokemonNumber).then((response)=>{
+    PokeApi.getPokemonById(pokemonNumber).then((response) => {
       setPokemon(response.data);
       setMoves(response.data);
       setStats(response.data);
       setLoading(false);
-    }).catch((error)=>{
-      console.log(error)
+    }).catch((error) => {
+      console.log(error);
       setLoading(false);
       setError("Pokemon no encontrado");
     });
   }
 
-
   return (
-    
     <div className="App">
-      <Card></Card>
-      <input onChange={(event)=>{setPokemonNumber(event.target.value)}} className="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value={pokemonNumber}></input>
-      <Button label="Buscar" color='green' onClick={()=>buscar()}></Button>
+      <Card
+        name={pokemon?.name}
+        image={pokemon?.sprites?.other['official-artwork'].front_default}
+        height={pokemon?.height}
+        //description="Aquí va una descripción del Pokémon"
+        onSearch={buscar}
+        onInputChange={(event) => setPokemonNumber(event.target.value)}
+        inputValue={pokemonNumber}
+      />
+      <IntroPokedex />
+      <Profile />
       {loading && <p>Cargando...</p>}
       {(!loading && pokemon && moves && stats &&!error) && <>
         <IntroPokedex stats={stats}></IntroPokedex>
@@ -52,3 +68,4 @@ function App() {
 }
 
 export default App;
+
