@@ -9,10 +9,7 @@ import './index.css';
 function App() {
   return (
     <div className="App">
-      <p>Hello World</p>
-
       <Card></Card>
-      <Button></Button>
       <IntroPokedex></IntroPokedex>
       <Profile></Profile>
     </div>
