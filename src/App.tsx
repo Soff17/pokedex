@@ -11,6 +11,7 @@ import {Moves} from './models/Moves';
 import {Stats} from './models/Stats';
 import {PokeApi} from './api/PokeApi';
 import PokemonComponent from './components/Pokemon';
+import Card from './components/Card';
 
 function App() {
   const [pokemonNumber, setPokemonNumber] = React.useState<string|undefined>(undefined);
@@ -19,14 +20,6 @@ function App() {
   const [stats,setStats]=React.useState<Stats|undefined>(undefined);
   const [loading,setLoading]=React.useState<boolean>(false);
   const [error,setError]=React.useState<string|undefined>(undefined);
-  function buscar(){
-import Card from './components/Card';
-
-function App() {
-  const [pokemonNumber, setPokemonNumber] = useState<string | undefined>(undefined);
-  const [pokemon, setPokemon] = useState<Pokemon | undefined>(undefined);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<string | undefined>(undefined);
 
   function buscar() {
     setLoading(true);
@@ -54,8 +47,6 @@ function App() {
         onInputChange={(event) => setPokemonNumber(event.target.value)}
         inputValue={pokemonNumber}
       />
-      <IntroPokedex />
-      <Profile />
       {loading && <p>Cargando...</p>}
       {(!loading && pokemon && moves && stats &&!error) && <>
         <IntroPokedex stats={stats}></IntroPokedex>
