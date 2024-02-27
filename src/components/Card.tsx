@@ -42,7 +42,6 @@ export default function Card(props: CardProps) {
             className="text-center p-2 rounded-lg border-2 border-gray-300 mb-4 w-full"
             placeholder="Escribe algo..."
           />
-          <Button></Button>
         </div>
       </div>
     </div>
