@@ -33,6 +33,7 @@ function App() {
       <Card
         name={pokemon?.name}
         image={pokemon?.sprites?.other['official-artwork'].front_default}
+        height={pokemon?.height}
         //description="Aquí va una descripción del Pokémon"
         onSearch={buscar}
         onInputChange={(event) => setPokemonNumber(event.target.value)}

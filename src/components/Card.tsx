@@ -4,6 +4,7 @@ import Button from './Button';
 interface CardProps {
   image?: string;
   name?: string;
+  height?:number;
   //description?: string;
   onSearch: () => void; 
   onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void; 
@@ -13,6 +14,7 @@ interface CardProps {
 export default function Card({
   image,
   name,
+  height,
   //description,
   onSearch,
   onInputChange,
@@ -52,14 +54,7 @@ export default function Card({
           <div>
             <div className="block rounded-lg bg-white p-6 shadow-lg">
               <p className="mb-4 text-base text-neutral-600">
-                Altura: 0.5 metros
-              </p>
-            </div>
-          </div>
-          <div>
-            <div className="block rounded-lg bg-white p-6 shadow-lg">
-              <p className="mb-4 text-base text-neutral-600">
-                Peso: 0.5 metros
+                {height} Kg
               </p>
             </div>
           </div>
