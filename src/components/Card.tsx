@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import fondoTextura from './assets/fondotextura.jpg';
+import fondoGrises from '../assets/grises.jpg';
 
 interface Stat {
   base_stat: number;
@@ -49,7 +50,9 @@ export default function Card({
         />
       </div>
        
-      <div className={`p-7 rounded-3xl shadow-2xl w-1/3 m-5 border-2 border-black transition duration-500 hover:scale-105`}>
+      <div style={{
+  backgroundImage: `url(${fondoGrises})`
+}} className={`bg-pink-500 p-7 rounded-3xl shadow-2xl w-1/3 m-5 border-2 border-black transition duration-500 hover:scale-105`}>
       <div
         className="text-center mt-5 rounded-xl overflow-hidden border-4 border-black"
         style={{
