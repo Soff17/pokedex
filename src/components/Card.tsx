@@ -95,6 +95,12 @@ export default function Card({
           </div>
         </div>
         
+            <div className="block rounded-lg bg-white p-6 shadow-lg">
+              <p className="mb-4 text-base text-neutral-600">
+                {height} Kg
+              </p>
+            </div>
+        
         <div
                 className="grid grid-cols-1 gap-1 rounded-xl overflow-hidden border border-gray-500"
                 style={{
@@ -114,6 +120,8 @@ export default function Card({
                   
                 }}
 >          <div>
+  
+  
             
           </div>
         </div>
