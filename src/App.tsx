@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import './App.css';
-import IntroPokedex from './components/IntroPokedex';
 import Profile from './components/Profile';
 import './index.css';
 
@@ -10,7 +9,7 @@ import {Pokemon} from './models/Pokemon';
 import {Moves} from './models/Moves';
 import {Stats} from './models/Stats';
 import {PokeApi} from './api/PokeApi';
-import PokemonComponent from './components/Pokemon';
+
 import Card from './components/Card';
 
 function App() {
@@ -33,15 +32,30 @@ function App() {
       console.log(error);
       setLoading(false);
       setError("Pokemon no encontrado");
+      setStats(undefined);
+      setMoves(undefined);
+      setPokemon(undefined);
     });
   }
 
   return (
     <div className="App">
+      {error && (
+        <div className="bg-red-100 border border-red-400 text-red-700 px-10 py-7 rounded-lg relative" role="alert">
+          <strong className="font-bold text-lg">Error: </strong>
+          <span className="block sm:inline text-md">{error}</span>
+        </div>
+      )}
+      {loading && (
+        <div className="flex justify-center items-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-orange-500"></div>
+        </div>
+      )}
       <Card
-        name={pokemon?.name}
-        image={pokemon?.sprites?.other['official-artwork'].front_default}
+        name={error ? 'Intente otro pokemon' : pokemon?.name || 'Encuentre su pokemon'}
+        image={error ? 'https://i.pinimg.com/originals/da/d4/55/dad455563bac8b9198130aa5f75fb930.png' : pokemon?.sprites?.other['official-artwork'].front_default || 'https://i.pinimg.com/originals/da/d4/55/dad455563bac8b9198130aa5f75fb930.png'}
         height={pokemon?.height}
+        stats={pokemon?.stats}
         //description="Aquí va una descripción del Pokémon"
         onSearch={buscar}
         onInputChange={(event) => setPokemonNumber(event.target.value)}
@@ -49,11 +63,8 @@ function App() {
       />
       {loading && <p>Cargando...</p>}
       {(!loading && pokemon && moves && stats &&!error) && <>
-        <IntroPokedex stats={stats}></IntroPokedex>
         <Profile stats={stats} moves={moves}></Profile>
-        <PokemonComponent pokemon={pokemon}></PokemonComponent>
       </>}
-      {error && <p>{error}</p>}
     </div>
   );
 }
