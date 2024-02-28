@@ -10,11 +10,20 @@ export interface Pokemon{
             }
         }
     }
+    stats:Stat[];
 }
 
 interface Ability{
     ability:{
         name:string;
         url:string;
+    }
+}
+
+interface Stat{
+    base_stat:number;
+    stat:{
+        name: string;
+        url: string;
     }
 }
